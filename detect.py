@@ -142,9 +142,11 @@ def run(weights=ROOT / 'yolov5s.pt',  # model.pt path(s)
     for path, img, im0s, vid_cap in dataset:
         i += 1
         if ((i % 30) != 0):
+            print("continueing")
             continue 
         # img22 = Image.open(path)
         # img22.show() 
+        print("getting frame")
         t1 = time_sync()
         if onnx:
             img = img.astype('float32')
