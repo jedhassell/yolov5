@@ -123,13 +123,13 @@ def run(weights=ROOT / 'yolov5s.pt',  # model.pt path(s)
     if webcam:
         view_img = check_imshow()
         cudnn.benchmark = True  # set True to speed up constant image size inference
-        print("webcam")
+        print("jed webcam 126")
         
         # source = youtubelink
         dataset = LoadStreams(source, img_size=imgsz, stride=stride, auto=pt)
         bs = len(dataset)  # batch_size
     else:
-        print("else")
+        print("jed else 132")
         dataset = LoadImages(source, img_size=imgsz, stride=stride, auto=pt)
         bs = 1  # batch_size
     vid_path, vid_writer = [None] * bs, [None] * bs
@@ -200,7 +200,7 @@ def run(weights=ROOT / 'yolov5s.pt',  # model.pt path(s)
 
         # Second-stage classifier (optional)
         if classify:
-            print('2nd')
+            print('classify 203')
             pred = apply_classifier(pred, modelc, img, im0s)
 
         # Process predictions
@@ -208,10 +208,10 @@ def run(weights=ROOT / 'yolov5s.pt',  # model.pt path(s)
         for i, det in enumerate(pred):  # per image
             seen += 1
             if webcam:  # batch_size >= 1
-                print("jed webcam")
+                print("jed webcam 211")
                 p, s, im0, frame = path[i], f'{i}: ', im0s[i].copy(), dataset.count
             else:
-                print("jed else")
+                print("jed 214")
                 p, s, im0, frame = path, '', im0s.copy(), getattr(dataset, 'frame', 0)
 
             p = Path(p)  # to Path
