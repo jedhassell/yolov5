@@ -139,12 +139,12 @@ def run(weights=ROOT / 'yolov5s.pt',  # model.pt path(s)
         model(torch.zeros(1, 3, *imgsz).to(device).type_as(next(model.parameters())))  # run once
     dt, seen = [0.0, 0.0, 0.0], 0
     # sys.exit()
-    i = 0
+    # jed_temp = 0
     for path, img, im0s, vid_cap in dataset:
-        i += 1
-        if ((i % 30) != 0):
-            print("continueing")
-            continue 
+        # jed_temp += 1
+        # if ((jed_temp % 30) != 0):
+        #     print("continueing")
+        #     continue 
         # img22 = Image.open(path)
         # img22.show() 
         print("getting frame")
@@ -276,6 +276,7 @@ def run(weights=ROOT / 'yolov5s.pt',  # model.pt path(s)
                     vid_writer[i].write(im0)
 
     # Print results
+
     t = tuple(x / seen * 1E3 for x in dt)  # speeds per image
     print(f'Speed: %.1fms pre-process, %.1fms inference, %.1fms NMS per image at shape {(1, 3, *imgsz)}' % t)
     if save_txt or save_img:

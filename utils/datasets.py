@@ -208,9 +208,10 @@ class LoadImages:
                     path = self.files[self.count]
                     self.new_video(path)
                     ret_val, img0 = self.cap.read()
-
-            self.frame += 1
+            
             print(f'video {self.count + 1}/{self.nf} ({self.frame}/{self.frames}) {path}: ', end='')
+            self.frame += 30
+            self.cap.set(cv2.CAP_PROP_POS_FRAMES, self.frame)
 
         else:
             # Read image
