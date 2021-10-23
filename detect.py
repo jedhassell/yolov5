@@ -138,7 +138,11 @@ def run(weights=ROOT / 'yolov5s.pt',  # model.pt path(s)
         model(torch.zeros(1, 3, *imgsz).to(device).type_as(next(model.parameters())))  # run once
     dt, seen = [0.0, 0.0, 0.0], 0
     # sys.exit()
+    i = 0
     for path, img, im0s, vid_cap in dataset:
+        i += 1
+        if ((i % 30) != 0):
+            continue 
         # img22 = Image.open(path)
         # img22.show() 
         t1 = time_sync()
